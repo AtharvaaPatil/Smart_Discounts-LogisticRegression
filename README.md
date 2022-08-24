@@ -77,7 +77,48 @@ Python implementation
 > ` def loss(h, y):  
 > return (-y * np.log(h) - (1 - y) * np.log(1-h)).mean()`
 
-### Approach #1 - tryout a number
+### Approach #1 - tryout a number  
 
+### Approach #2 - tryout a lot of numbers  
+
+### Approach #3 - gradient descent
+Gradient descent algorithms provide us with a way to find a minimum of some function f. They work by iteratively going in the direction of the descent as defined by the gradient.  
+
+In Machine Learning, we use gradient descent algorithms to find "good" parameters for our models (Logistic Regression, Linear Regression, Neural Networks, etc..).
+
+![gradient](Images/gradient.png)
+
+#### Working -
+Starting somewhere, we take our first step downhill in the direction specified by the negative gradient. Next, we recalculate the negative gradient and take another step in the direction it specifies. This process continues until we get to a point where we can no longer move downhill -- **a local minimum.**  
+
+But how to find that gradient? We have to find the derivate of our cost function since our example is rather simple.  
+
+**We derivate the sigmoid function**
+First derivative of Sigmoid function -   
+> g'(z)=g(z)(1-g(z))  
+
+First derivative of Cost function -   
+J(W) = 1 / m(-y * log(hw) - (1-y)*log(1-hw))  
+Given -  
+g'(z)=g(z)(1-g(z))
+
+= 1 / m(y-hw)x
+
+### Updating our parameters W
+> W := W - alpha(1 / m(y - hw)x)
+
+The parameter alpha is known as learning rate. High learning rate can converge quickly but risks overshooting the lowest point. Low learning rate allows for confidence in movement in the direction of the negative gradient, however, it is time consuming and so it takes a lot of time to coonverge.  
+
+![learning](Images/learning.png)
+
+## The gradient descent algorithm 
+The algorithm we're going to use works as follows:
+> Repeat until convergence {
+> 1. Calculate gradient average
+> 2. Multiply by learning rate
+> 3. Subtract from weights  
+> }
+
+**Until convergence part** - We might notice that we kinda brute-force our way around it. That is, we will run the algorithm for a preset amount of iterations. Another interesting point is the initialization of our weights **W** -- initially set at zero.
 
 
