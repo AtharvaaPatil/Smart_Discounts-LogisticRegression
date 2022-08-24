@@ -51,8 +51,8 @@ g is also know as the **sigmoid function** or the **logistic function**. After s
 Intuitively, we're going to use the sigmoid function over the Linear regression model to bound it within [0; +1]
 
 We translate sigmoid function into python form:
-> def sigmoid(z):  
->   return 1 / (1 + np.exp(-z))
+> `def sigmoid(z):  
+>   return 1 / (1 + np.exp(-z))`
 
 
 ![sigmoid](Images/sigmoid.png)
@@ -65,5 +65,19 @@ Let's have a look at a few approaches to find good parameters for our model. But
 ### Loss function
 We have a model that we can use to make decisions, but we still have to find the parameters **'W'**. To do that, we need a measurement of how good a given set of parameters are. For that purpose, we will use a loss (cost) function:
 
-![loss_function]()
+![loss_function](Images/loss_function.png)
+![graph](Images/graph.png)
+
+> J(w) = 1 / m (-y log(hw) - (1 - y)log(1-hw))
+
+where
+> hw(x) = g(w^T . x)
+
+Python implementation  
+> ` def loss(h, y):  
+> return (-y * np.log(h) - (1 - y) * np.log(1-h)).mean()`
+
+### Approach #1 - tryout a number
+
+
 
