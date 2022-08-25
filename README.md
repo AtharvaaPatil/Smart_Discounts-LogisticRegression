@@ -121,4 +121,13 @@ The algorithm we're going to use works as follows:
 
 **Until convergence part** - We might notice that we kinda brute-force our way around it. That is, we will run the algorithm for a preset amount of iterations. Another interesting point is the initialization of our weights **W** -- initially set at zero.
 
+Let's put our implementation to the test, literally. But first, we need a function that helps us predict **y** given some data **X** (predict whether or not we should send a discount to a customer based on its spending):
+
+` def predict(X, W):  
+return sigmoid(np.dot(x, w))  
+`
+
+
+We use **reshape** to add a dummy dimension to **X**. Further, after our call to **predict**, we round the results. We can remember that the sigmoid function gives out numbers in the range [0; 1] range. We're just going to round the result in order to obtain our yes or no answers ( 0 or 1).
+
 
