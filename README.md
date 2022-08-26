@@ -131,3 +131,19 @@ return sigmoid(np.dot(x, w))
 We use **reshape** to add a dummy dimension to **X**. Further, after our call to **predict**, we round the results. We can remember that the sigmoid function gives out numbers in the range [0; 1] range. We're just going to round the result in order to obtain our yes or no answers ( 0 or 1).
 
 
+We do not get a correct result even after all the work. Let's check what went wrong.   
+
+One possible cause for our problem was that the loss does not get low enough, that is, our algorithm gets stuck at some point that is not a good minimum for us. We can try out a different learning rate or initializing our parameter with a different value.
+
+using a = 0.001
+
+Even after this we do not get the desired results.  
+How about adding one more parameter for our model
+
+We add a new element to our parameter vector W and set it's initial value to 1. Seems like this works. 
+
+## Building our own LogisticRegressor
+We just packed all the previously written functions into a class. One advantage of this approach is the fact that we hide the complexity of the Gradient descent algorithm and the use of the parameters **W**.
+
+# Conclusion
+LogisticRegressor implementation complete.
